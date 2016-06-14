@@ -80,7 +80,7 @@ public class RedirectFilter extends BaseFilter {
 		}
 		if (redirectHost!=null) {
 			String protocol = request.isSecure() ? "https://" : "http://";
-			String port = request.getLocalPort()==80 || request.getLocalPort()==443 ? "" : ":" + String.valueOf(request.getLocalPort()); 
+			String port = request.getServerPort()==80 || request.getServerPort()==443 ? "" : ":" + String.valueOf(request.getServerPort()); 
 			String redirectTo = protocol + redirectHost + port;
 			try  {
 				response.sendRedirect(redirectTo);
